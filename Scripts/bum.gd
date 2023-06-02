@@ -7,12 +7,7 @@ var rot = 45
 var direction = Vector2(0,1)
 var motion
 var collision
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
 	if is_on_wall():
@@ -20,7 +15,6 @@ func _process(delta):
 			rot = 0
 		rot += 90
 	
-	#direction = Vector2(cos(rot), sin(rot))
 	$Sprite2D.rotation_degrees += 10
 
 	motion = direction*3
