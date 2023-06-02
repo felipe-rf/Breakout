@@ -13,4 +13,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	set_cell(0,pos,-1)
+	#set_cell(0,pos,-1)
+	pass
