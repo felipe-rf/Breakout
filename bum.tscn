@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bnxe3yikveon5"]
+
+[ext_resource type="Texture2D" uid="uid://goj1cdwymk70" path="res://bum.png" id="1_l5nln"]
+[ext_resource type="Script" path="res://bum.gd" id="1_y2sj4"]
+[ext_resource type="Texture2D" uid="uid://c0p3kntddyd7h" path="res://new_gradienttexture.tres" id="2_eoyyv"]
+[ext_resource type="Texture2D" uid="uid://c0oljydi5b80k" path="res://dust.png" id="3_l4til"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_padub"]
+lifetime_randomness = 0.36
+emission_shape = 1
+emission_sphere_radius = 3.19
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_max = 53.68
+angle_max = 242.5
+scale_min = 0.5
+color_ramp = ExtResource("2_eoyyv")
+
+[sub_resource type="Gradient" id="Gradient_ucv84"]
+offsets = PackedFloat32Array(0.322581, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_02df8"]
+gradient = SubResource("Gradient_ucv84")
+fill = 1
+fill_from = Vector2(0.490826, 0.509174)
+fill_to = Vector2(0.0779817, 0.12844)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e4ir6"]
+radius = 6.08276
+
+[node name="RigidBody2D" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_y2sj4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, 8)
+amount = 150
+process_material = SubResource("ParticleProcessMaterial_padub")
+texture = ExtResource("3_l4til")
+randomness = 0.09
+
+[node name="PointLight2D" type="PointLight2D" parent="GPUParticles2D"]
+color = Color(1, 0.403922, 0, 1)
+energy = 4.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_02df8")
+texture_scale = 0.17
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 6)
+texture = ExtResource("1_l5nln")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_e4ir6")
