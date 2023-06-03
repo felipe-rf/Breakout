@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://d224bfrdnmd07"]
+[gd_scene load_steps=10 format=3 uid="uid://d224bfrdnmd07"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="1_62qev"]
 [ext_resource type="Texture2D" uid="uid://bw6dwej8iwpt4" path="res://a.png" id="2_epy72"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t3adx"]
+size = Vector2(27, 19)
 
 [sub_resource type="Animation" id="Animation_whtkx"]
 length = 0.001
@@ -92,6 +93,9 @@ _data = {
 "walk": SubResource("Animation_c7jab")
 }
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hklnu"]
+polygon = PackedVector2Array(-4, -10, -8, -5, -8, 1, -8, 12, 7, 12, 7, -5, 3, -10)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_62qev")
 
@@ -102,10 +106,13 @@ vframes = 10
 frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(-0.5, 2.5)
 shape = SubResource("RectangleShape2D_t3adx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bcsv1")
 }
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_hklnu")

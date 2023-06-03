@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://6wpmbr8aiksu"]
+
+[ext_resource type="Texture2D" uid="uid://b2o3bevahgugb" path="res://torch.png" id="1_pqvxv"]
+[ext_resource type="Texture2D" uid="uid://c123oabcp7mrb" path="res://torch-Sheet.png" id="2_ux077"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_neu8m"]
+atlas = ExtResource("2_ux077")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6x75f"]
+atlas = ExtResource("2_ux077")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88xkn"]
+atlas = ExtResource("2_ux077")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kotkn"]
+atlas = ExtResource("2_ux077")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cejxq"]
+atlas = ExtResource("2_ux077")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4oxvu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_neu8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6x75f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88xkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kotkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cejxq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_15588"]
+offsets = PackedFloat32Array(0, 0.754839)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c5us3"]
+gradient = SubResource("Gradient_15588")
+fill = 1
+fill_from = Vector2(0.495413, 0.504587)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_pqvxv")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4oxvu")
+autoplay = "default"
+speed_scale = 2.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(6, 1)
+texture = SubResource("GradientTexture2D_c5us3")

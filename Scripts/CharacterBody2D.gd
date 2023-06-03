@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 100.0
+const SPEED = 200.0
 var collision
 var attack = false
 func _physics_process(delta):

@@ -1,0 +1,76 @@
+[gd_scene load_steps=11 format=3 uid="uid://8qcgo07yupkl"]
+
+[ext_resource type="Texture2D" uid="uid://b2o3bevahgugb" path="res://torch.png" id="1_re7xa"]
+[ext_resource type="Texture2D" uid="uid://chxsqkt8jms4d" path="res://uptorch.png" id="2_5vdyu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqo82"]
+atlas = ExtResource("2_5vdyu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1q7j"]
+atlas = ExtResource("2_5vdyu")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vmo5p"]
+atlas = ExtResource("2_5vdyu")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_41nml"]
+atlas = ExtResource("2_5vdyu")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ffr8q"]
+atlas = ExtResource("2_5vdyu")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bv6u8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqo82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x1q7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vmo5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqo82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_41nml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ffr8q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_15588"]
+offsets = PackedFloat32Array(0, 0.754839)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_c5us3"]
+gradient = SubResource("Gradient_15588")
+fill = 1
+fill_from = Vector2(0.495413, 0.504587)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_re7xa")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bv6u8")
+autoplay = "default"
+frame = 5
+frame_progress = 0.748349
+speed_scale = 2.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 6)
+texture = SubResource("GradientTexture2D_c5us3")
