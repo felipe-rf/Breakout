@@ -32,6 +32,7 @@ func get_collision():
 				randomize()
 			tile.erase_cell(0,cell)
 
+
 		if collider == wall:
 			speed += 25
 			
