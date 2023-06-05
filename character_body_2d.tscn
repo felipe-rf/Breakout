@@ -97,6 +97,8 @@ _data = {
 polygon = PackedVector2Array(-4, -10, -8, -5, -8, 1, -8, 12, 7, 12, 7, -5, 3, -10)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+collision_layer = 13
+collision_mask = 5
 script = ExtResource("1_62qev")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -116,3 +118,5 @@ libraries = {
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_hklnu")
+
+[node name="Timer" type="Timer" parent="."]

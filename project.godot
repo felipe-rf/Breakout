@@ -15,6 +15,18 @@ run/main_scene="res://node_2d.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+
+[layer_names]
+
+2d_physics/layer_1="Wall"
+2d_physics/layer_2="Brick"
+2d_physics/layer_3="Ball"
+2d_physics/layer_4="Player"
+2d_physics/layer_5="Power"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
