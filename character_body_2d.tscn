@@ -3,8 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/CharacterBody2D.gd" id="1_62qev"]
 [ext_resource type="Texture2D" uid="uid://bw6dwej8iwpt4" path="res://a.png" id="2_epy72"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3adx"]
-size = Vector2(27, 19)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8158d"]
+radius = 9.5
+height = 27.0
 
 [sub_resource type="Animation" id="Animation_whtkx"]
 length = 0.001
@@ -109,7 +110,8 @@ frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 2.5)
-shape = SubResource("RectangleShape2D_t3adx")
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_8158d")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

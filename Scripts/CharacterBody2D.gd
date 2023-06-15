@@ -5,13 +5,20 @@ extends CharacterBody2D
 const SPEED = 200.0
 var collision
 var attack = false
-
+var Ypos
+func _ready():
+	Ypos = global_position.y
 func _physics_process(delta):
 	# Add the gravity.
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	#var direction = sign(get_global_mouse_position()-global_position).x
-	velocity.x = direction * SPEED
+	if !Globals.gameOver:
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = 0
+	velocity.y = 0
+	global_position.y = Ypos
 	if not attack:
 		if velocity.x != 0:
 			$AnimationPlayer.play("walk")

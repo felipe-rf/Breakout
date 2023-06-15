@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://dcetfs5pw57fx"]
+[gd_scene load_steps=26 format=3 uid="uid://dcetfs5pw57fx"]
 
+[ext_resource type="Script" path="res://room.gd" id="1_8tyll"]
 [ext_resource type="Texture2D" uid="uid://dxtpwgp2ud1mu" path="res://wall2.png" id="1_b0fuh"]
 [ext_resource type="PackedScene" uid="uid://bnxe3yikveon5" path="res://bum.tscn" id="1_cn03m"]
 [ext_resource type="Texture2D" uid="uid://bwhjue4aveocd" path="res://wall.png" id="2_3khom"]
 [ext_resource type="Script" path="res://Scripts/TileMap.gd" id="2_sq8s3"]
 [ext_resource type="PackedScene" uid="uid://d224bfrdnmd07" path="res://character_body_2d.tscn" id="3_ukvjw"]
 [ext_resource type="PackedScene" uid="uid://6wpmbr8aiksu" path="res://torch.tscn" id="6_0df4e"]
-[ext_resource type="PackedScene" uid="uid://8qcgo07yupkl" path="res://uptorch.tscn" id="6_4b3c0"]
+[ext_resource type="FontFile" uid="uid://dk4o1mx3xv67i" path="res://Pixellari.ttf" id="7_vxpsk"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_064pp"]
 polygon = PackedVector2Array(-8, -4, 8, -4, 8, 4, -8, 4)
@@ -1067,11 +1068,54 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_b2rq5")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vx15h"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ar06s"]
+light_mode = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wrm16"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+shadow_color = Color(0, 0, 0, 0.827451)
+shadow_size = 1
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bxjkr"]
+bg_color = Color(0.137255, 0.137255, 0.137255, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imctv"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7wp1k"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_bcqpi"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="Shortcut" id="Shortcut_spahl"]
+events = [SubResource("InputEventKey_bcqpi")]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3q7g2"]
+light_mode = 1
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_8tyll")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 432.0
-offset_bottom = 212.0
+offset_bottom = 272.0
 color = Color(0.309804, 0.309804, 0.392157, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -1081,16 +1125,16 @@ zoom = Vector2(3, 3)
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_oeoi4")
 format = 2
-layer_0/tile_data = PackedInt32Array(65537, 458753, 9, 131073, 458753, 9, 196609, 458753, 9, 262145, 458753, 9, 327681, 458753, 9, 65538, 458753, 9, 131074, 458753, 9, 196610, 458753, 9, 262146, 458753, 9, 327682, 458753, 9, 65539, 458753, 9, 131075, 458753, 9, 196611, 458753, 9, 262147, 458753, 9, 327683, 458753, 9, 65540, 458753, 9, 131076, 458753, 9, 196612, 458753, 9, 262148, 458753, 9, 327684, 458753, 9, 65541, 458753, 9, 131077, 458753, 9, 196613, 458753, 9, 262149, 458753, 9, 327685, 458753, 9, 65542, 458753, 9, 131078, 458753, 9, 196614, 458753, 9, 262150, 458753, 9, 327686, 458753, 9, 65543, 458753, 9, 131079, 458753, 9, 196615, 458753, 9, 262151, 458753, 9, 327687, 458753, 9, 65544, 458753, 9, 131080, 458753, 9, 196616, 458753, 9, 262152, 458753, 9, 327688, 458753, 9, 65545, 458753, 9, 131081, 458753, 9, 196617, 458753, 9, 262153, 458753, 9, 327689, 458753, 9, 65546, 458753, 9, 131082, 458753, 9, 196618, 458753, 9, 262154, 458753, 9, 327690, 458753, 9, 65547, 458753, 9, 131083, 458753, 9, 196619, 458753, 9, 262155, 458753, 9, 327691, 458753, 9, 65548, 458753, 9, 131084, 458753, 9, 196620, 458753, 9, 262156, 458753, 9, 327692, 458753, 9, 65549, 458753, 9, 131085, 458753, 9, 196621, 458753, 9, 262157, 458753, 9, 327693, 458753, 9, 65550, 458753, 9, 131086, 458753, 9, 196622, 458753, 9, 262158, 458753, 9, 327694, 458753, 9, 65551, 458753, 9, 131087, 458753, 9, 196623, 458753, 9, 262159, 458753, 9, 327695, 458753, 9, 65552, 458753, 9, 131088, 458753, 9, 196624, 458753, 9, 262160, 458753, 9, 327696, 458753, 9, 65553, 458753, 9, 131089, 458753, 9, 196625, 458753, 9, 262161, 458753, 9, 327697, 458753, 9, 65554, 458753, 9, 131090, 458753, 9, 196626, 458753, 9, 262162, 458753, 9, 327698, 458753, 9, 65555, 458753, 9, 131091, 458753, 9, 196627, 458753, 9, 262163, 458753, 9, 327699, 458753, 9, 65556, 458753, 9, 131092, 458753, 9, 196628, 458753, 9, 262164, 458753, 9, 327700, 458753, 9, 65557, 458753, 9, 131093, 458753, 9, 196629, 458753, 9, 262165, 458753, 9, 327701, 458753, 9, 65558, 458753, 9, 131094, 458753, 9, 196630, 458753, 9, 262166, 458753, 9, 327702, 458753, 9)
+layer_0/tile_data = PackedInt32Array(393218, 458753, 9, 393219, 458753, 9, 393220, 458753, 9, 393221, 458753, 9, 393235, 458753, 9, 393236, 458753, 9, 393237, 458753, 9, 393234, 458753, 9, 327686, 458753, 9, 327687, 458753, 9, 327688, 458753, 9, 327689, 458753, 9, 327697, 458753, 9, 327696, 458753, 9, 327695, 458753, 9, 262154, 458753, 9, 262155, 458753, 9, 262156, 458753, 9, 262157, 458753, 9, 262146, 458753, 9, 262147, 458753, 9, 262148, 458753, 9, 262149, 458753, 9, 393226, 458753, 9, 393227, 458753, 9, 393228, 458753, 9, 393229, 458753, 9, 262162, 458753, 9, 262163, 458753, 9, 262164, 458753, 9, 262165, 458753, 9, 196625, 458753, 9, 196624, 458753, 9, 196623, 458753, 9, 196617, 458753, 9, 196616, 458753, 9, 196615, 458753, 9, 196614, 458753, 9, 327694, 458753, 9, 196622, 458753, 9)
 script = ExtResource("2_sq8s3")
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_pa0dk")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 524288, 8, 65536, 458752, 8, 131072, 458752, 8, 196608, 458752, 8, 262144, 458752, 8, 327680, 458752, 8, 524288, 458752, 8, 589824, 458752, 8, 16, 327680, 9, 15, 327680, 9, 14, 327680, 9, 13, 327680, 9, 12, 327680, 9, 11, 327680, 9, 10, 327680, 9, 9, 327680, 9, 8, 327680, 9, 7, 327680, 9, 6, 327680, 9, 5, 327680, 9, 4, 327680, 9, 3, 327680, 9, 2, 327680, 9, 1, 327680, 9, 17, 327680, 9, -65519, 327680, 7, -65520, 327680, 7, -65521, 327680, 7, -65522, 327680, 7, -65523, 327680, 7, -65524, 327680, 7, -65525, 327680, 7, -65526, 327680, 7, -65527, 327680, 7, -65528, 327680, 7, -65529, 327680, 7, -65530, 327680, 7, -65531, 327680, 7, -65532, 327680, 7, -65533, 327680, 7, -65534, 327680, 7, -65535, 327680, 7, -65536, 262144, 7, 655360, 458752, 8, 720896, 458752, 8, 786432, 524288, 9, 851968, 262144, 8, 851969, 327680, 8, 851970, 327680, 8, 917507, 327680, 9, 917508, 327680, 9, 917509, 327680, 9, 851973, 327680, 8, 851974, 327680, 8, 851975, 327680, 8, 851976, 327680, 8, 851977, 327680, 8, 851978, 327680, 8, 851979, 327680, 8, 851972, 327680, 8, 851971, 327680, 8, 786433, 327680, 7, 786434, 327680, 7, 786435, 327680, 7, 786436, 327680, 7, 786437, 327680, 7, 786438, 327680, 7, 786439, 327680, 7, 786440, 327680, 7, 786441, 327680, 7, 786442, 327680, 7, 786443, 327680, 7, 786444, 327680, 7, 786445, 327680, 7, 786446, 327680, 7, 786447, 327680, 7, 786448, 327680, 7, 786449, 327680, 7, 786450, 327680, 7, 786451, 327680, 7, 851987, 327680, 8, 851988, 327680, 8, 851989, 327680, 8, 786453, 327680, 7, 786454, 327680, 7, 851990, 327680, 8, 851991, 393216, 8, 786455, 720896, 9, 786452, 327680, 7, 851983, 327680, 8, 851982, 327680, 8, 851981, 327680, 8, 851980, 327680, 8, 851984, 327680, 8, 851986, 327680, 8, 851985, 327680, 8, 720919, 458752, 8, 655383, 458752, 8, 589847, 458752, 8, 524311, 458752, 8, 458775, 458752, 8, 393239, 458752, 8, 327703, 458752, 8, 262167, 458752, 8, 196631, 458752, 8, 131095, 458752, 8, 65559, 458752, 8, 23, 458752, 8, 22, 393216, 9, 21, 327680, 9, 20, 327680, 9, 19, 327680, 9, 18, 327680, 9, 393216, 458752, 8, 458752, 458752, 8, -65518, 327680, 7, -65517, 327680, 7, -65516, 327680, 7, -65515, 327680, 7, -65514, 589824, 7, -65513, 393216, 7, 917504, 262144, 9, 917505, 327680, 9, 917506, 327680, 9, 917510, 327680, 9, 917511, 327680, 9, 917512, 327680, 9, 917513, 327680, 9, 917514, 327680, 9, 917515, 327680, 9, 917516, 327680, 9, 917518, 327680, 9, 917517, 327680, 9, 917519, 327680, 9, 917520, 327680, 9, 917521, 327680, 9, 917522, 327680, 9, 917523, 327680, 9, 917524, 327680, 9, 917525, 327680, 9, 917526, 327680, 9, 917527, 393216, 9)
+layer_0/tile_data = PackedInt32Array(0, 262144, 8, 65536, 262144, 8, 131072, 524288, 8, 196608, 458752, 8, 262144, 458752, 8, 327680, 458752, 8, 524288, 458752, 8, 589824, 458752, 8, 16, 327680, 8, 15, 327680, 8, 14, 327680, 8, 13, 327680, 8, 12, 327680, 8, 11, 327680, 8, 10, 327680, 8, 9, 327680, 8, 8, 327680, 8, 7, 327680, 8, 6, 327680, 8, 5, 327680, 8, 4, 327680, 8, 3, 327680, 8, 2, 327680, 8, 1, 327680, 8, 17, 327680, 8, -65519, 327680, 7, -65520, 327680, 7, -65521, 327680, 7, -65522, 327680, 7, -65523, 327680, 7, -65524, 327680, 7, -65525, 327680, 7, -65526, 327680, 7, -65527, 327680, 7, -65528, 327680, 7, -65529, 327680, 7, -65530, 327680, 7, -65531, 327680, 7, -65532, 327680, 7, -65533, 327680, 7, -65534, 327680, 7, -65535, 327680, 7, -65536, 262144, 7, 655360, 458752, 8, 720896, 458752, 8, 786432, 524288, 11, 851968, 458752, 8, 851991, 458752, 8, 786455, 458752, 8, 720919, 458752, 8, 655383, 458752, 8, 589847, 458752, 8, 524311, 458752, 8, 458775, 458752, 8, 393239, 458752, 8, 327703, 458752, 8, 262167, 458752, 8, 196631, 458752, 8, 131095, 720896, 8, 65559, 393216, 8, 23, 393216, 8, 22, 327680, 8, 21, 327680, 8, 20, 327680, 8, 19, 327680, 8, 18, 327680, 8, 393216, 458752, 8, 458752, 458752, 8, -65518, 327680, 7, -65517, 327680, 7, -65516, 327680, 7, -65515, 327680, 7, -65514, 327680, 7, -65513, 393216, 7, 917504, 458752, 9, 917527, 458752, 9, 65537, 327680, 8, 65538, 327680, 8, 65539, 327680, 8, 65540, 327680, 8, 65541, 327680, 8, 65542, 327680, 8, 65543, 327680, 8, 65544, 327680, 8, 65545, 327680, 8, 65546, 327680, 8, 65547, 327680, 8, 65548, 327680, 8, 65549, 327680, 8, 65550, 327680, 8, 65551, 327680, 8, 65552, 327680, 8, 65553, 327680, 8, 65554, 327680, 8, 65555, 327680, 8, 65556, 327680, 8, 65557, 327680, 8, 65558, 327680, 8, 131094, 327680, 9, 131093, 327680, 9, 131092, 327680, 9, 131087, 327680, 9, 131086, 327680, 9, 131085, 327680, 9, 131084, 327680, 9, 131080, 327680, 9, 131079, 327680, 9, 131078, 327680, 9, 131077, 327680, 9, 131076, 327680, 9, 131075, 327680, 9, 131074, 327680, 9, 131073, 327680, 9, 131081, 327680, 9, 131090, 327680, 9, 131091, 327680, 9, 131089, 327680, 9, 131088, 327680, 9, 131083, 327680, 9, 131082, 327680, 9)
 
 [node name="bum" parent="." instance=ExtResource("1_cn03m")]
-position = Vector2(190, 122)
+position = Vector2(200, 160)
 collision_layer = 2
 collision_mask = 3
 
@@ -1121,24 +1165,64 @@ position = Vector2(-166, -5)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
-[node name="Node2D7" parent="Torches" instance=ExtResource("6_4b3c0")]
-position = Vector2(-126, 7)
-
-[node name="Node2D8" parent="Torches" instance=ExtResource("6_4b3c0")]
-position = Vector2(2, 7)
-
-[node name="Node2D9" parent="Torches" instance=ExtResource("6_4b3c0")]
-position = Vector2(130, 7)
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_ukvjw")]
-position = Vector2(190, 177)
+position = Vector2(200, 200)
 collision_mask = 3
-
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(-8, 12)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 position = Vector2(0, -4)
 color = Color(0.764706, 0.764706, 0.764706, 1)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+material = SubResource("CanvasItemMaterial_vx15h")
+offset_left = 72.0
+offset_top = 56.0
+offset_right = 313.0
+offset_bottom = 103.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.113725, 0.113725, 0.113725, 1)
+theme_override_fonts/font = ExtResource("7_vxpsk")
+theme_override_font_sizes/font_size = 44
+text = "GAME OVER"
+
+[node name="Button" type="Button" parent="Label"]
+material = SubResource("CanvasItemMaterial_ar06s")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 2.043
+anchor_right = 0.033
+anchor_bottom = 2.043
+offset_left = 56.047
+offset_top = -32.021
+offset_right = 168.047
+offset_bottom = 7.979
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_vxpsk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wrm16")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bxjkr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_imctv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7wp1k")
+disabled = true
+shortcut = SubResource("Shortcut_spahl")
+text = "RESTART"
+
+[node name="Pontos" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_3q7g2")
+offset_left = 15.0
+offset_right = 118.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("7_vxpsk")
+theme_override_font_sizes/font_size = 16
+
+[node name="Vidas" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_3q7g2")
+offset_left = 14.0
+offset_top = 16.0
+offset_right = 117.0
+offset_bottom = 68.0
+theme_override_fonts/font = ExtResource("7_vxpsk")
+theme_override_font_sizes/font_size = 16
+
+[connection signal="pressed" from="Label/Button" to="." method="_on_button_pressed"]
